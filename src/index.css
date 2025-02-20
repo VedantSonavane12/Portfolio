@@ -1,7 +1,15 @@
-*
-{
-font-family: 'DM Sans';
-}
+@font-face {
+    font-family: 'DM Sans';
+    src: url('/workspaces/Portfolio/src/assets/DMSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Apply to the form */
+  .form-container {
+    font-family: 'DM Sans', sans-serif;
+  }
+  
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
