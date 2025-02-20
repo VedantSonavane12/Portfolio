@@ -1,4 +1,11 @@
-*
-{
-font-family:'DM Sans' ;
-}
+@font-face {
+    font-family: 'Lexend';
+    src: url('../assets/Lexend.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Apply to the form */
+  .form-container {
+    font-family: 'Lexend';
+  }
