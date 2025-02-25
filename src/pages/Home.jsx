@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaArrowRight, FaArrowDown } from "react-icons/fa";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -25,7 +25,29 @@ export default function Portfolio() {
   const backgroundVideos = [backgroundVideo1, backgroundVideo2, backgroundVideo3];
   const backgroundVideo = backgroundVideos[Math.floor(Math.random() * backgroundVideos.length)];
   const sectionRef = useRef(null);
-
+  const projects = [
+    {
+      title: "DigitalLearn",
+      description:
+        "A professional e-learning and e-commerce platform offering courses on coding, AWS, and cloud storage. Designed and developed in just 20 days using WordPress, the platform features video tutorials, quizzes, and assessments within a structured 1-month learning program.",
+      url: "https://digitalearnsolution.com/",
+      imageUrl: projectImage1,
+    },
+    {
+      title: "OLLATO Eduversity",
+      description:
+        "A platform supporting students' mental health and stress management through expert guidance and personalized programs. Developed with HTML, CSS, PHP, featuring multi-panel access, video calling, payment API integration, and AWS deployment.",
+      url: "https://www.ollato.com/",
+      imageUrl: projectImage2,
+    },
+    {
+      title: "Urbane Travels",
+      description:
+        "A state-of-the-art travel platform integrating various transportation APIs for smooth and efficient booking. With B2B, B2C, and admin panels, the website is developed using React, Node.js, and Tailwind CSS, hosted on Hosting Raja for optimal performance.",
+      url: "https://www.urbanetravels.com",
+      imageUrl: projectImage3,
+    },
+  ];
   useEffect(() => {
     gsap.fromTo(
       sectionRef.current,
@@ -51,7 +73,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen text-gray-900">
+    <div className="relative w-full min-h-screen ">
       {/* Video Background */}
       <video
         autoPlay
@@ -67,9 +89,9 @@ export default function Portfolio() {
 
       {/* Content Wrapper */}
       <div className="relative z-20 flex flex-col items-center w-full text-white">
-        <section className="w-full h-screen flex flex-col items-center justify-center text-center p-10 relative" data-aos="fade-up">
+        <section className="w-full min-h-screen flex flex-col items-center justify-center text-center p-6 md:p-10 relative" data-aos="fade-up">
           <motion.h1
-            className="text-6xl font-extrabold"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -78,7 +100,7 @@ export default function Portfolio() {
           </motion.h1>
 
           <motion.p
-            className="text-lg mt-6 text-white w-1/2 leading-relaxed italic"
+            className="text-base sm:text-lg mt-6 text-white w-11/12 md:w-3/4 lg:w-1/2 leading-relaxed italic"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2 }}
@@ -88,29 +110,29 @@ export default function Portfolio() {
             meet unique business needs.
           </motion.p>
 
-          <div className="mt-8 flex gap-6">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 sm:gap-6">
             <button
               type="button"
-              className="mt-8 text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg hover:bg-white hover:text-gray-900 transition duration-300"
+              className="w-full sm:w-auto text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg hover:bg-white hover:text-gray-900 transition duration-300"
             >
               Get Brochure
             </button>
             <button
               type="button"
-              className="mt-8 text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg hover:bg-white hover:text-gray-900 transition duration-300"
+              className="w-full sm:w-auto text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg hover:bg-white hover:text-gray-900 transition duration-300"
             >
               Download Resume
             </button>
           </div>
-        
-
         </section>
 
+
         {/* About Me Section */}
-        <section className="w-full mx-auto my-16 p-10 text-white text-center" data-aos="fade-up">
-          <h2 className="text-6xl font-bold">About Me</h2>
+        <section className="w-full mx-auto my-16 px-6 md:px-10 text-white text-center" data-aos="fade-up">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">About Me</h2>
+
           <motion.p
-            className="text-lg mt-4 text-white leading-relaxed italic"
+            className="text-base sm:text-lg mt-4 leading-relaxed italic max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2 }}
@@ -120,14 +142,15 @@ export default function Portfolio() {
             curve in an ever-evolving tech landscape.
           </motion.p>
 
-          <div className="mt-8 flex justify-center gap-8">
-            <p className="w-1/2 p-6 border border-white rounded-lg text-lg leading-relaxed">
+          {/* Responsive Two-Column Layout */}
+          <div className="mt-8 flex flex-col md:flex-row justify-center gap-6">
+            <p className="w-full md:w-1/2 p-6 border border-white rounded-lg text-base sm:text-lg leading-relaxed">
               The journey into software development began with <strong>curiosity</strong> and a drive to create.
               From exploring the <em>fundamentals of programming</em> to tackling <strong>real-world challenges</strong>,
               every step has been a lesson in <u>perseverance</u> and <u>innovation</u>.
             </p>
 
-            <p className="w-1/2 mt-4 sm:mt-0 p-6 border border-white rounded-lg text-lg leading-relaxed">
+            <p className="w-full md:w-1/2 p-6 border border-white rounded-lg text-base sm:text-lg leading-relaxed">
               Working with <strong>startups</strong> and collaborating on <em>impactful projects</em> has reinforced the belief that
               <u>technology is a powerful tool for change</u>. The focus remains on building
               <strong>scalable, high-performance applications</strong> that not only <em>solve problems</em>
@@ -135,9 +158,9 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="mt-8">
-            {/* Quote Section */}
-            <div className="quote-container bg-white bg-opacity-10 p-6 rounded-lg text-lg text-white">
+          {/* Quote Section */}
+          <div className="mt-8 max-w-4xl mx-auto">
+            <div className="quote-container bg-white bg-opacity-10 p-6 rounded-lg text-base sm:text-lg leading-relaxed">
               <p className="quote-text">
                 "When something is important enough, you do it even if the odds are not in your favor." – Elon Musk
               </p>
@@ -146,39 +169,53 @@ export default function Portfolio() {
 
           {/* Know More Button */}
           <div className="mt-10">
-            <button className="mt-8 text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg flex items-center mx-auto hover:bg-white hover:text-gray-900 transition duration-300">
+            <button className="w-full sm:w-auto text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg flex items-center justify-center mx-auto hover:bg-white hover:text-gray-900 transition duration-300">
               Know Me <FaArrowRight className="ml-2" />
             </button>
           </div>
         </section>
 
+
         {/* Tech Ecosystem Section */}
         <section
           ref={sectionRef}
-          className="w-full my-16 p-10 text-center bg-transparent"
+          className="w-full my-16 p-6 md:p-10 text-center bg-transparent"
           data-aos="fade-up"
         >
-          <h2 className="text-6xl font-bold text-white mb-8">Tech Ecosystem</h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 md:mb-8">
+            Tech Ecosystem
+          </h2>
+
           <motion.p
-            className="text-lg mt-6 text-white leading-relaxed"
+            className="text-base md:text-lg mt-4 md:mt-6 text-white leading-relaxed px-4 md:px-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2 }}
           >
-            The tech ecosystem is a vibrant, ever-evolving landscape, where innovation thrives and collaboration fuels growth. From cutting-edge software solutions to advanced hardware technologies, it is a space where ideas transform into impactful products that shape the future of industries. As a software developer, I leverage this dynamic environment to create solutions that are not only scalable but also drive real-world transformation.
+            The tech ecosystem is a vibrant, ever-evolving landscape, where
+            innovation thrives and collaboration fuels growth. From cutting-edge
+            software solutions to advanced hardware technologies, it is a space
+            where ideas transform into impactful products that shape the future of
+            industries.
           </motion.p>
 
-          {/* Languages Carousel (Left to Right) */}
-          <div className="mb-12" data-aos="fade-up">
-            <h3 className="text-3xl font-semibold text-white mb-6">Languages & Frameworks</h3>
+          {/* Languages & Frameworks Carousel */}
+          <div className="mb-10" data-aos="fade-up">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              Languages & Frameworks
+            </h3>
             <Swiper
-              slidesPerView={4}  // Show only 6 items
-              spaceBetween={20}
-              autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: false }}
-              speed={5000}
+              slidesPerView={3}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 5 },
+              }}
+              spaceBetween={15}
+              autoplay={{ delay: 0, disableOnInteraction: false }}
+              speed={4000}
               loop={true}
               modules={[Autoplay]}
-              className="mt-4"
             >
               {[
                 "JavaScript",
@@ -191,70 +228,96 @@ export default function Portfolio() {
                 "Node.js",
                 "Vue.js",
                 "Ruby on Rails",
-                "Flutter",
-                "Django",
-                "Angular",
-                "Swift",
-                "Go"
               ].map((skill, index) => (
-                <SwiperSlide key={index} className="p-6 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border-2 border-white">
+                <SwiperSlide
+                  key={index}
+                  className="p-4 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border border-white"
+                >
                   {skill}
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
 
-          {/* Databases Carousel (Right to Left) */}
-          <div className="mb-12" data-aos="fade-up">
-            <h3 className="text-3xl font-semibold text-white mb-4">Databases</h3>
+          {/* Databases Carousel */}
+          <div className="mb-10" data-aos="fade-up">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              Databases
+            </h3>
             <Swiper
-              slidesPerView={4}  // Show only 6 items
-              spaceBetween={20}
+              slidesPerView={3}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 5 },
+              }}
+              spaceBetween={15}
               autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: true }}
-              speed={5000}
+              speed={4000}
               loop={true}
               modules={[Autoplay]}
-              className="mt-4"
             >
-              {["MySQL", "MongoDB", "PostgreSQL", "Firebase", "Redis", "SQLite"].map((db, index) => (
-                <SwiperSlide key={index} className="p-6 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border-2 border-white">
-                  {db}
-                </SwiperSlide>
-              ))}
+              {["MySQL", "MongoDB", "PostgreSQL", "Firebase", "Redis"].map(
+                (db, index) => (
+                  <SwiperSlide
+                    key={index}
+                    className="p-4 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border border-white"
+                  >
+                    {db}
+                  </SwiperSlide>
+                )
+              )}
             </Swiper>
           </div>
 
-          {/* DevOps & Cloud Carousel (Left to Right) */}
+          {/* DevOps & Cloud Carousel */}
           <div data-aos="fade-up">
-            <h3 className="text-3xl font-semibold text-white mb-4">DevOps & Cloud</h3>
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              DevOps & Cloud
+            </h3>
             <Swiper
-              slidesPerView={4}  // Show only 6 items
-              spaceBetween={20}
-              autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: false }}
-              speed={5000}
+              slidesPerView={3}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 5 },
+              }}
+              spaceBetween={15}
+              autoplay={{ delay: 0, disableOnInteraction: false }}
+              speed={4000}
               loop={true}
               modules={[Autoplay]}
-              className="mt-4"
             >
-              {["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "GitHub"].map((devops, index) => (
-                <SwiperSlide key={index} className="p-6 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border-2 border-white">
-                  {devops}
-                </SwiperSlide>
-              ))}
+              {["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "GitHub"].map(
+                (devops, index) => (
+                  <SwiperSlide
+                    key={index}
+                    className="p-4 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border border-white"
+                  >
+                    {devops}
+                  </SwiperSlide>
+                )
+              )}
             </Swiper>
           </div>
 
-          {/* Additional Tools & Design Software Carousel (Left to Right) */}
+          {/* Additional Tools & Design Software Carousel */}
           <div className="mt-12" data-aos="fade-up">
-            <h3 className="text-3xl font-semibold text-white mb-6">Additional Tools & Design Software</h3>
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              Additional Tools & Design Software
+            </h3>
             <Swiper
-              slidesPerView={4}  // Show only 6 items
-              spaceBetween={20}
+              slidesPerView={3}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 5 },
+              }}
+              spaceBetween={15}
               autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: true }}
-              speed={5000}
+              speed={4000}
               loop={true}
               modules={[Autoplay]}
-              className="mt-4"
             >
               {[
                 "Photoshop",
@@ -264,11 +327,11 @@ export default function Portfolio() {
                 "Adobe XD",
                 "Blender",
                 "InVision",
-                "Webflow",
-                "Canva",
-                "Zeplin"
               ].map((tool, index) => (
-                <SwiperSlide key={index} className="p-6 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border-2 border-white">
+                <SwiperSlide
+                  key={index}
+                  className="p-4 bg-white bg-opacity-20 rounded-lg font-semibold text-white shadow-md border border-white"
+                >
                   {tool}
                 </SwiperSlide>
               ))}
@@ -277,181 +340,124 @@ export default function Portfolio() {
         </section>
 
 
+
         {/* Skills & Expertise Section */}
-        <section className="w-full mx-auto my-16 p-10 text-white text-center" data-aos="fade-up">
-          <h2 className="text-6xl font-bold text-white mb-8">Skills & Expertise</h2>
-          <motion.p
-            className="text-lg mt-4 text-white leading-relaxed italic"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-          >
-            Equipped with a diverse skill set and practical experience, I specialize in crafting efficient, scalable, and innovative solutions. From front-end development to back-end architecture, my expertise spans multiple technologies, ensuring seamless digital experiences and high-performance applications.
-          </motion.p>
+         
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
-            {/* Education */}
-            <div className="p-6 border border-white rounded-2xl text-lg leading-relaxed bg-transparent hover:scale-105 hover:shadow-xl transition-all duration-500 ease-in-out" data-aos="fade-up">
-              <h3 className="text-2xl font-semibold mb-4">Education</h3>
-              <ul className="list-inside list-disc text-left">
-                <li>Bachelor of Science in Computer Science</li>
-                <li>Specialized in Software Development & Artificial Intelligence</li>
-                <li>Conducted AI-driven Research Projects with Distinction</li>
-              </ul>
-            </div>
-
-            {/* Skills & Hands-on Experience */}
-            <div className="p-6 border border-white rounded-2xl text-lg leading-relaxed bg-transparent hover:scale-105 hover:shadow-xl transition-all duration-500 ease-in-out" data-aos="fade-up">
-              <h3 className="text-2xl font-semibold mb-4">Skills & Hands-on Experience</h3>
-              <ul className="list-inside list-disc text-left">
-                <li>Proficient in JavaScript, Python, and PHP</li>
-                <li>Experienced with React, Node.js, and Django frameworks</li>
-                <li>Full-stack Web and Mobile App Development</li>
-                <li>Database Architecture (MySQL & MongoDB)</li>
-                <li>Cloud Infrastructure & API Integration</li>
-              </ul>
-            </div>
-
-            {/* NDA */}
-            <div className="p-6 border border-white rounded-2xl text-lg leading-relaxed bg-transparent hover:scale-105 hover:shadow-xl transition-all duration-500 ease-in-out" data-aos="fade-up">
-              <h3 className="text-2xl font-semibold mb-4">NDA & Confidential Projects</h3>
-              <ul className="list-inside list-disc text-left">
-                <li>Collaborated on Proprietary Software for Fortune 500 Clients</li>
-                <li>Ensured Full Compliance with Data Security Protocols</li>
-                <li>Implemented Secure Development Lifecycle (SDLC) Practices</li>
-              </ul>
-            </div>
-
-            {/* Corporate Experience */}
-            <div className="p-6 border border-white rounded-2xl text-lg leading-relaxed bg-transparent hover:scale-105 hover:shadow-xl transition-all duration-500 ease-in-out" data-aos="fade-up">
-              <h3 className="text-2xl font-semibold mb-4">Corporate Experience</h3>
-              <ul className="list-inside list-disc text-left">
-                <li>Led Agile Development Teams in Fast-paced Tech Environments</li>
-                <li>Managed Full Lifecycle Software Development Projects</li>
-                <li>Collaborated with Global, Cross-functional Stakeholders</li>
-                <li>Delivered Scalable, High-performance Software Solutions</li>
-                <li>Championed Continuous Improvement & Innovation Initiatives</li>
-              </ul>
-            </div>
-          </div>
-        </section>
 
         {/* Projects Section */}
-        <section className="w-full mx-auto my-16 p-4 text-white text-center bg-transparent" data-aos="fade-up">
-          <h2 className="text-6xl font-bold mb-8">Projects</h2>
+        <section
+          className="w-full max-w-7xl mx-auto my-16 px-4 sm:px-6 lg:px-8 text-white text-center"
+          data-aos="fade-up"
+        >
+          <h2 className="text-4xl sm:text-6xl font-bold mb-8">Projects</h2>
           <motion.p
-            className="text-lg mt-4 text-white leading-relaxed italic"
+            className="text-base sm:text-lg mt-4 text-white leading-relaxed italic"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2 }}
           >
-            Each project is a reflection of innovation, problem-solving, and technical expertise. From concept to execution, I focus on building scalable, efficient, and user-friendly solutions that drive meaningful impact. Explore these projects to see creativity and functionality come together.
+            Each project is a reflection of innovation, problem-solving, and
+            technical expertise. From concept to execution, I focus on building
+            scalable, efficient, and user-friendly solutions that drive meaningful
+            impact. Explore these projects to see creativity and functionality come
+            together.
           </motion.p>
 
-          <div className="flex flex-col gap-6 mt-4">
-            {[
-              {
-                title: "DigitalLearn",
-                description: "A professional e-learning and e-commerce platform offering courses on coding, AWS, and cloud storage. Designed and developed in just 20 days using WordPress, the platform features video tutorials, quizzes, and assessments within a structured 1-month learning program.",
-                url: "https://digitalearnsolution.com/",
-                imageUrl: projectImage1
-              },
-              {
-                title: "OLLATO Eduversity",
-                description: "A platform supporting students' mental health and stress management through expert guidance and personalized programs. Developed with HTML, CSS, PHP, featuring multi-panel access, video calling, payment API integration, and AWS deployment.",
-                url: "https://www.ollato.com/",
-                imageUrl: projectImage2
-              },
-              {
-                title: "Urbane Travels",
-                description: "A state-of-the-art travel platform integrating various transportation APIs for smooth and efficient booking. With B2B, B2C, and admin panels, the website is developed using React, Node.js, and Tailwind CSS, hosted on Hosting Raja for optimal performance.",
-                url: "https://www.urbanetravels.com",
-                imageUrl: projectImage3
-              }
-            ].map((project, index) => (
-              <div key={index} className={`flex flex-col md:flex-row items-center gap-2 bg-white bg-opacity-20 p-2 rounded-lg shadow-lg ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`} data-aos="fade-up">
-                {/* Left Section (Image) */}
+          <div className="flex flex-col gap-8 mt-8">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className={`flex flex-col md:flex-row items-center gap-6 bg-white bg-opacity-20 p-6 rounded-lg shadow-lg transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-xl ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                data-aos="fade-up"
+              >
+                {/* Project Image */}
                 <div className="w-full md:w-1/2">
                   <img
-                    className="w-full"
+                    className="w-full h-auto rounded-lg object-cover"
                     src={project.imageUrl}
                     alt={project.title}
                   />
                 </div>
 
-                {/* Right Section (Description) */}
-                <div className="w-full md:w-1/2">
-                  <h3 className="text-3xl font-semibold text-white mb-4">{project.title}</h3>
-                  <p className="text-lg text-white">
-                    {project.description} <br />
-                    <a href={project.url} className="text-lg text-white underline mt-4">Visit Site</a>
+                {/* Project Details */}
+                <div className="w-full md:w-1/2 text-center md:text-left">
+                  <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-4">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm sm:text-lg text-white leading-relaxed">
+                    {project.description}
                   </p>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-4 text-white text-lg font-semibold underline transition-colors hover:text-gray-300"
+                  >
+                    Visit Site
+                  </a>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
+
         {/* Services Section */}
-        <section className="w-full mx-auto my-16 p-10 text-white text-center bg-transparent" data-aos="fade-up">
-          <h2 className="text-6xl font-bold mb-8"> Services</h2>
+        <section
+          className="w-full mx-auto my-16 px-6 sm:px-10 lg:px-16 text-white text-center bg-transparent"
+          data-aos="fade-up"
+        >
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">Services</h2>
           <motion.p
-            className="text-lg mt-4 text-white leading-relaxed italic"
+            className="text-base sm:text-lg mt-4 text-white leading-relaxed italic"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2 }}
           >
-            We offer a range of professional services designed to help your business grow and thrive. From custom web development to comprehensive e-commerce solutions, our team is here to bring your ideas to life. Explore our services and see how we can assist you.
+            We offer a range of professional services designed to help your business
+            grow and thrive. From custom web development to comprehensive e-commerce
+            solutions, our team is here to bring your ideas to life.
           </motion.p>
 
-          <div className="space-y-12 mt-4">
-            {/* Service 1 */}
-            <div className="flex flex-col lg:flex-row justify-between items-center bg-transparent p-0 rounded-lg" data-aos="fade-up">
-              <div className="lg:w-1/2">
-                <h3 className="text-8xl font-semibold text-white mb-4 text-left">1.Web Development</h3>
-              </div>
-              <div className="lg:w-1/2 bg-white bg-opacity-20 p-4 text-lg text-white rounded-lg shadow-lg">
-                <p>
-                  We create responsive and dynamic websites using modern frameworks like React, Node.js, and Angular. Our team specializes in building fast and scalable web applications. We ensure cross-browser compatibility and optimal performance for every site we build. Our goal is to provide users with a seamless web experience. From e-commerce sites to business platforms, we handle all kinds of web development projects with precision and expertise.
-                </p>
-                <p>
-                  Whether you need a single-page app or a complex multi-page website, we have the skills to turn your ideas into reality. <a href="#get-brochure" className="underline text-white">Get Brochure</a> | <a href="#know-more" className="underline text-white">Know More</a>
-                </p>
-              </div>
-            </div>
-
-            {/* Service 2 */}
-            <div className="flex flex-col lg:flex-row justify-between items-center bg-transparent p-0 rounded-lg" data-aos="fade-up">
-              <div className="lg:w-1/2">
-                <h3 className="text-8xl font-semibold text-white mb-4 text-left">2.Mobile App Development</h3>
-              </div>
-              <div className="lg:w-1/2 bg-white bg-opacity-20 p-4 text-lg text-white rounded-lg shadow-lg">
-                <p>
-                  Our team develops high-performing mobile apps for both iOS and Android platforms using React Native and Flutter. We focus on building intuitive, user-friendly apps. With years of experience, we ensure your app performs well on all devices, offering native-like performance with cross-platform capabilities. We specialize in everything from custom app development to app optimization, providing long-term maintenance and updates as required. Whether you need a simple app or a sophisticated mobile solution, we tailor our services to meet your business needs.
-                </p>
-                <p>
-                  <a href="#get-brochure" className="underline text-white">Get Brochure</a> | <a href="#know-more" className="underline text-white">Know More</a>
-                </p>
-              </div>
-            </div>
-
-            {/* Service 3 */}
-            <div className="flex flex-col lg:flex-row justify-between items-center bg-transparent p-0 rounded-lg" data-aos="fade-up">
-              <div className="lg:w-1/2">
-                <h3 className="text-8xl font-semibold text-white mb-4 text-left">3.Cloud Solutions</h3>
-              </div>
-              <div className="lg:w-1/2 bg-white bg-opacity-20 p-4 text-lg text-white rounded-lg shadow-lg">
-                <p>
-                  We offer scalable cloud infrastructure services, including hosting, deployment, and management, to help you scale your business efficiently. Our cloud solutions ensure high availability, security, and cost-effective resources tailored to meet your unique requirements. With cloud services from providers like AWS, Google Cloud, and Azure, we can handle all aspects of cloud management for your business. Whether you're looking for cloud storage, migration, or SaaS solutions, we have the expertise to provide you with the best-fit solutions.
-                </p>
-                <p>
-                  <a href="#get-brochure" className="underline text-white">Get Brochure</a> | <a href="#know-more" className="underline text-white">Know More</a>
-                </p>
-              </div>
-            </div>
+          <div className="space-y-12 mt-6">
+            {["Web Development", "Mobile App Development", "Cloud Solutions"].map(
+              (service, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col lg:flex-row justify-between items-center bg-transparent p-0 rounded-lg"
+                  data-aos="fade-up"
+                >
+                  <div className="lg:w-1/2 text-left">
+                    <h3 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-4">
+                      {index + 1}. {service}
+                    </h3>
+                  </div>
+                  <div className="lg:w-1/2 bg-white bg-opacity-20 p-6 text-base sm:text-lg text-white rounded-lg shadow-lg">
+                    <p>
+                      {index === 0 &&
+                        "We create responsive and dynamic websites using modern frameworks like React, Node.js, and Angular. Our team specializes in building fast and scalable web applications."}
+                      {index === 1 &&
+                        "Our team develops high-performing mobile apps for both iOS and Android platforms using React Native and Flutter. We focus on building intuitive, user-friendly apps."}
+                      {index === 2 &&
+                        "We offer scalable cloud infrastructure services, including hosting, deployment, and management, to help you scale your business efficiently."}
+                    </p>
+                    <p className="mt-2">
+                      <a href="#get-brochure" className="underline text-white">
+                        Get Brochure
+                      </a>{" "}
+                      |{" "}
+                      <a href="#know-more" className="underline text-white">
+                        Know More
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              )
+            )}
           </div>
 
-          {/* Button to See All Services */}
           <div className="mt-8">
             <a
               href="#all-services"
@@ -463,124 +469,71 @@ export default function Portfolio() {
         </section>
 
         {/* Get in Touch Section */}
-        <section className="w-full my-16 p-10 text-center bg-transparent text-white" data-aos="fade-up">
-          <h2 className="text-6xl font-bold mb-8">Get in Touch</h2>
+        <section className="w-full my-16 p-6 md:p-10 text-center bg-transparent text-white" data-aos="fade-up">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8">Get in Touch</h2>
 
-          {/* Contact Form */}
-          <div className="flex flex-col lg:flex-row justify-evenly items-center space-y-6 lg:space-y-0 lg:space-x-12">
-          <div className="lg:w-1/2 bg-opacity-20 p-6 rounded-lg border border-white " data-aos="fade-up">
-          <form action="#" method="POST">
-                <div className="space-y-4">
-                  {/* Name and Phone Fields */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    {/* Name */}
-                    <div>
-                      <label className="block text-lg mb-2" htmlFor="name">Name</label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        className="w-full p-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter your name"
-                        required
-                      />
-                    </div>
-
-                    {/* Phone */}
-                    <div>
-                      <label className="block text-lg mb-2" htmlFor="phone">Phone</label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        className="w-full p-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter your phone number"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  {/* Email and Inquiry Type Fields */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    {/* Email */}
-                    <div>
-                      <label className="block text-lg mb-2" htmlFor="email">Email</label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        className="w-full p-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter your email"
-                        required
-                      />
-                    </div>
-
-                    {/* Inquiry Type */}
-                    <div>
-                      <label className="block text-lg mb-2" htmlFor="inquiry">Inquiry Type</label>
-                      <select
-                        id="inquiry"
-                        name="inquiry"
-                        className="w-full p-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                      >
-                        <option value="freelancing">Freelancing</option>
-                        <option value="pricing">Pricing</option>
-                        <option value="hiring">Hiring</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Message */}
+          <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-12">
+            {/* Contact Form */}
+            <div className="w-full lg:w-1/2 bg-opacity-20 p-6 md:p-8 rounded-lg border border-white" data-aos="fade-up">
+              <form action="#" method="POST" className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-lg mb-2" htmlFor="message">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="4"
-                      className="w-full p-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Enter your message"
-                      required
-                    ></textarea>
+                    <label className="block text-lg mb-2" htmlFor="name">Name</label>
+                    <input id="name" name="name" type="text" className="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your name" required />
                   </div>
-
-                  <button
-                    type="submit"
-                    className="mt-8 text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg hover:bg-white hover:text-gray-900 transition duration-300"
-                  >
-                    Submit
-                  </button>
+                  <div>
+                    <label className="block text-lg mb-2" htmlFor="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" className="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your phone number" required />
+                  </div>
                 </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-lg mb-2" htmlFor="email">Email</label>
+                    <input id="email" name="email" type="email" className="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required />
+                  </div>
+                  <div>
+                    <label className="block text-lg mb-2" htmlFor="inquiry">Inquiry Type</label>
+                    <select id="inquiry" name="inquiry" className="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                      <option value="freelancing">Freelancing</option>
+                      <option value="pricing">Pricing</option>
+                      <option value="hiring">Hiring</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-lg mb-2" htmlFor="message">Message</label>
+                  <textarea id="message" name="message" rows="4" className="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your message" required></textarea>
+                </div>
+
+                <button type="submit" className="mt-6 text-lg text-white bg-transparent border-2 border-white py-3 px-6 rounded-lg hover:bg-white hover:text-gray-900 transition duration-300">Submit</button>
               </form>
             </div>
 
             {/* Social Media Links */}
-            <div className="lg:w-1/2 flex flex-col items-center space-y-6" data-aos="fade-up">
-              <h3 className="text-3xl font-semibold">Follow Me</h3>
-              <div className="flex justify-center space-x-6 mt-6">
-                <a href="https://github.com/yourusername" className="hover:text-gray-400">
-                  <FaGithub size={40} />
-                </a>
-                <a href="https://linkedin.com/in/yourusername" className="hover:text-gray-400">
-                  <FaLinkedin size={40} />
-                </a>
-                <a href="mailto:vedantsonavane799@gmail.com" className="hover:text-gray-400">
-                  <FaEnvelope size={40} />
-                </a>
-              </div>
+            <div className="w-full lg:w-1/2 flex flex-col items-center space-y-6" data-aos="fade-up">
+              <h3 className="text-2xl md:text-3xl font-semibold">Follow Me</h3>
+              <div className="flex justify-center space-x-6 mt-4">
+  <a href="https://github.com/yourusername" className="hover:text-gray-400">
+    <FaGithub size={30} />
+  </a>
+  <a href="https://linkedin.com/in/yourusername" className="hover:text-gray-400">
+    <FaLinkedin size={30} />
+  </a>
+  <a href="https://instagram.com/yourusername" className="hover:text-gray-400">
+    <FaInstagram size={30} />
+  </a>
+  <a href="mailto:vedantsonavane799@gmail.com" className="hover:text-gray-400">
+    <FaEnvelope size={30} />
+  </a>
+</div>
 
-              {/* Contact Information */}
-              <div className="mt-8">
-                <h4 className="text-2xl font-semibold">Contact Info</h4>
-                <p className="mt-2 text-lg">
-                  <strong>Email:</strong> <a href="mailto:vedantsonavane799@gmail.com" className="underline">vedantsonavane799@gmail.com</a>
-                </p>
-                <p className="mt-2 text-lg">
-                  <strong>Phone:</strong> +1 (123) 456-7890
-                </p>
-                <p className="mt-2 text-lg">
-                  <strong>Address:</strong> 123 Your Street, Your City, Country
-                </p>
+              <div className="mt-6 text-center">
+                <h4 className="text-xl font-semibold">Contact Info</h4>
+                <p className="mt-2 text-lg"><strong>Email:</strong> <a href="mailto:vedantsonavane799@gmail.com" className="underline">vedantsonavane799@gmail.com</a></p>
+                <p className="mt-2 text-lg"><strong>Phone:</strong> +91 8291998556</p>
+                <p className="mt-2 text-lg"><strong>Address:</strong>   Thane 400615, Mumbai, INDIA</p>
               </div>
             </div>
           </div>

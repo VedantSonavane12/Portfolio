@@ -1,13 +1,12 @@
 @font-face {
-  font-family: 'Lexend';
-  src: url('../assets/Lexend.ttf') format('truetype');
+  font-family: 'CustomFont';
+  src: url('/src/assets/urbanist.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-/* Apply to the form */
-.form-container {
-  font-family: 'Lexend';
+* {
+  font-family: 'CustomFont', 'DM Sans', sans-serif;
 }
 
 @tailwind base;
