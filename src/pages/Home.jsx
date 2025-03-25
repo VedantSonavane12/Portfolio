@@ -96,7 +96,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Crafting Intelligent, Scalable Solutions That Elevate Digital Innovation projects chnages 
+            Crafting Intelligent, Scalable Solutions That Elevate Digital Innovation 
           </motion.h1>
 
           <motion.p
